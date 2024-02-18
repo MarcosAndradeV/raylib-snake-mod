@@ -108,7 +108,7 @@ void InitGame(void)
     gameOver = false;
     pause = false;
 
-    counterTail = 1;
+    counterTail = 2;
     allowMove = false;
 
     offset.x = screenWidth%SQUARE_SIZE;
@@ -194,7 +194,7 @@ void UpdateGame(void)
                 } else if ((snake[0].position.x < 0)) {
                     snake[0].position = (Vector2){ 756.5f, snake[0].position.y};
                 } else if (((snake[0].position.x) > (screenWidth - offset.x))) {
-                    snake[0].position = (Vector2){ 12.5f, snake[0].position.x};
+                    snake[0].position = (Vector2){ 12.5f, snake[0].position.y};
                 } else {
                     gameOver = true;
                 }
@@ -211,8 +211,6 @@ void UpdateGame(void)
             {
                 fruit.active = true;
                 fruit.position = (Vector2){ GetRandomValue(0, (screenWidth/SQUARE_SIZE) - 1)*SQUARE_SIZE + offset.x/2, GetRandomValue(0, (screenHeight/SQUARE_SIZE) - 1)*SQUARE_SIZE + offset.y/2 };
-                TraceLog(LOG_INFO, "fruit.position.x = %f", fruit.position.x);
-                TraceLog(LOG_INFO, "fruit.position.y = %f", fruit.position.y);
                 for (int i = 0; i < counterTail; i++)
                 {
                     while ((fruit.position.x == snake[i].position.x) && (fruit.position.y == snake[i].position.y))
