@@ -183,10 +183,10 @@ void UpdateGame(void)
             }
 
             // Wall behaviour modified
+            // Now the snake teleport between opposite walls
             if (((snake[0].position.x) > (screenWidth - offset.x)) ||
                 ((snake[0].position.y) > (screenHeight - offset.y)) ||
                 (snake[0].position.x < 0) || (snake[0].position.y < 0)) {
-                // Now the snake teleport between opposite walls
                 if ((snake[0].position.y < 0)) {
                     snake[0].position = (Vector2){snake[0].position.x, 411};
                 } else if (((snake[0].position.y) > (screenHeight - offset.y))) {
