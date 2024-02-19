@@ -13,7 +13,7 @@ void build_src(const char *src)
 {
     Cstr src_path = PATH("src", src);
     if (!path_exists("build")) {
-        path_mkdirs(cstr_array_make("build"));
+        mkdir("build");
     }
     CMD("cc", CFLAGS, "-o", TARGET, src_path, LIBS);
 }
